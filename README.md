@@ -10,30 +10,14 @@ Multi-platform Docker container with utilities to process Mailbox files and Mail
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/10081/badge)](https://bestpractices.coreinfrastructure.org/projects/10081)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/leplusorg/docker-mail/badge)](https://securityscorecards.dev/viewer/?uri=github.com/leplusorg/docker-mail)
 
-## Example without using the filesystem
+## Example
 
-Let's say that you want to convert an Mailbox file intput.mail in your current working directory to HTML:
-
-**Mac/Linux**
-
-```bash
-cat intput.mail | docker run --rm -i --net=none leplusorg/mail asciidoc -o - > output.html
-```
-
-**Windows**
-
-```batch
-type intput.mail | docker run --rm -i --net=none leplusorg/mail asciidoc -o - > output.html
-```
-
-## Example using the filesystem
-
-Same thing, assuming that you want to convert an Mailbox file intput.mail in your current working directory to HTML:
+Let's say that you want to know the number of messages in a Maildir folder in your current working directory:
 
 **Mac/Linux**
 
 ```bash
-docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/tmp" leplusorg/mail asciidoc -o output.html intput.mail
+docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/tmp" leplusorg/mail messages maildir
 ```
 
 **Windows**
@@ -41,13 +25,13 @@ docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/tmp" leplus
 In `cmd`:
 
 ```batch
-docker run --rm -t --net=none -v "%cd%:/tmp" leplusorg/mail asciidoc -o output.html intput.mail
+docker run --rm -t --net=none -v "%cd%:/tmp" leplusorg/mail messages maildir
 ```
 
 In PowerShell:
 
 ```pwsh
-docker run --rm -t --net=none -v "${PWD}:/tmp" leplusorg/mail asciidoc -o output.html intput.mail
+docker run --rm -t --net=none -v "${PWD}:/tmp" leplusorg/mail messages maildir
 ```
 
 ## Software Bill of Materials (SBOM)
