@@ -7,7 +7,7 @@ Multi-platform Docker container with utilities to process Mailbox files and Mail
 [![Docker Stars](https://img.shields.io/docker/stars/leplusorg/mail)](https://hub.docker.com/r/leplusorg/mail)
 [![Docker Pulls](https://img.shields.io/docker/pulls/leplusorg/mail)](https://hub.docker.com/r/leplusorg/mail)
 [![Docker Version](https://img.shields.io/docker/v/leplusorg/mail?sort=semver)](https://hub.docker.com/r/leplusorg/mail)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/10081/badge)](https://bestpractices.coreinfrastructure.org/projects/10081)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/10081/badge)](https://bestpractices.coreinfrastructure.org/projects/11219)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/leplusorg/docker-mail/badge)](https://securityscorecards.dev/viewer/?uri=github.com/leplusorg/docker-mail)
 
 ## Example
