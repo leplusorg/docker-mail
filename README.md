@@ -12,7 +12,7 @@ Multi-platform Docker container with utilities to process Mailbox files (`formai
 
 ## Example without using the filesystem
 
-Let's say that you want to convert an AsciiDoc file intput.mbox in your current working directory to HTML:
+Let's say that you want to convert an Mailbox file intput.mbox in your current working directory to HTML:
 
 **Mac/Linux**
 
@@ -28,7 +28,7 @@ type intput.mbox | docker run --rm -i --net=none leplusorg/mbox asciidoc -o - > 
 
 ## Example using the filesystem
 
-Same thing, assuming that you want to convert an AsciiDoc file intput.mbox in your current working directory to HTML:
+Same thing, assuming that you want to convert an Mailbox file intput.mbox in your current working directory to HTML:
 
 **Mac/Linux**
 
