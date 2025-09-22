@@ -11,9 +11,15 @@ services:
         if [ $$(id -u) -ne 1000 ]; then
           exit 1
         fi
+        aspell --version # aspell
         base64 --version # coreutils
         curl --version # curl
+        decodemail --version # mailutils
         git --version # git
+        mail-parser --version # mail-parser
+        mutt -v # mutt
+        neomutt -v # neomutt
+        notmuch --version # notmuch
         pip --version # py3-pip
         python --version # python3
       '

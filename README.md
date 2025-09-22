@@ -1,39 +1,39 @@
 # Mailbox
 
-Multi-platform Docker container with utilities to process Mailbox files (`formail`, `mail-parser`, `mutt`, `pymbox`...).
+Multi-platform Docker container with utilities to process Mailbox files and Maildir directories (`mail`, `mail-parser`, `mutt`...).
 
-[![Dockerfile](https://img.shields.io/badge/GitHub-Dockerfile-blue)](mbox/Dockerfile)
-[![Docker Build](https://github.com/leplusorg/docker-mbox/workflows/Docker/badge.svg)](https://github.com/leplusorg/docker-mbox/actions?query=workflow:"Docker")
-[![Docker Stars](https://img.shields.io/docker/stars/leplusorg/mbox)](https://hub.docker.com/r/leplusorg/mbox)
-[![Docker Pulls](https://img.shields.io/docker/pulls/leplusorg/mbox)](https://hub.docker.com/r/leplusorg/mbox)
-[![Docker Version](https://img.shields.io/docker/v/leplusorg/mbox?sort=semver)](https://hub.docker.com/r/leplusorg/mbox)
+[![Dockerfile](https://img.shields.io/badge/GitHub-Dockerfile-blue)](mail/Dockerfile)
+[![Docker Build](https://github.com/leplusorg/docker-mail/workflows/Docker/badge.svg)](https://github.com/leplusorg/docker-mail/actions?query=workflow:"Docker")
+[![Docker Stars](https://img.shields.io/docker/stars/leplusorg/mail)](https://hub.docker.com/r/leplusorg/mail)
+[![Docker Pulls](https://img.shields.io/docker/pulls/leplusorg/mail)](https://hub.docker.com/r/leplusorg/mail)
+[![Docker Version](https://img.shields.io/docker/v/leplusorg/mail?sort=semver)](https://hub.docker.com/r/leplusorg/mail)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/10081/badge)](https://bestpractices.coreinfrastructure.org/projects/10081)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/leplusorg/docker-mbox/badge)](https://securityscorecards.dev/viewer/?uri=github.com/leplusorg/docker-mbox)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/leplusorg/docker-mail/badge)](https://securityscorecards.dev/viewer/?uri=github.com/leplusorg/docker-mail)
 
 ## Example without using the filesystem
 
-Let's say that you want to convert an Mailbox file intput.mbox in your current working directory to HTML:
+Let's say that you want to convert an Mailbox file intput.mail in your current working directory to HTML:
 
 **Mac/Linux**
 
 ```bash
-cat intput.mbox | docker run --rm -i --net=none leplusorg/mbox asciidoc -o - > output.html
+cat intput.mail | docker run --rm -i --net=none leplusorg/mail asciidoc -o - > output.html
 ```
 
 **Windows**
 
 ```batch
-type intput.mbox | docker run --rm -i --net=none leplusorg/mbox asciidoc -o - > output.html
+type intput.mail | docker run --rm -i --net=none leplusorg/mail asciidoc -o - > output.html
 ```
 
 ## Example using the filesystem
 
-Same thing, assuming that you want to convert an Mailbox file intput.mbox in your current working directory to HTML:
+Same thing, assuming that you want to convert an Mailbox file intput.mail in your current working directory to HTML:
 
 **Mac/Linux**
 
 ```bash
-docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/tmp" leplusorg/mbox asciidoc -o output.html intput.mbox
+docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/tmp" leplusorg/mail asciidoc -o output.html intput.mail
 ```
 
 **Windows**
@@ -41,13 +41,13 @@ docker run --rm -t --user="$(id -u):$(id -g)" --net=none -v "$(pwd):/tmp" leplus
 In `cmd`:
 
 ```batch
-docker run --rm -t --net=none -v "%cd%:/tmp" leplusorg/mbox asciidoc -o output.html intput.mbox
+docker run --rm -t --net=none -v "%cd%:/tmp" leplusorg/mail asciidoc -o output.html intput.mail
 ```
 
 In PowerShell:
 
 ```pwsh
-docker run --rm -t --net=none -v "${PWD}:/tmp" leplusorg/mbox asciidoc -o output.html intput.mbox
+docker run --rm -t --net=none -v "${PWD}:/tmp" leplusorg/mail asciidoc -o output.html intput.mail
 ```
 
 ## Software Bill of Materials (SBOM)
@@ -56,7 +56,7 @@ To get the SBOM for the latest image (in SPDX JSON format), use the
 following command:
 
 ```bash
-docker buildx imagetools inspect leplusorg/mbox --format '{{ json (index .SBOM "linux/amd64").SPDX }}'
+docker buildx imagetools inspect leplusorg/mail --format '{{ json (index .SBOM "linux/amd64").SPDX }}'
 ```
 
 Replace `linux/amd64` by the desired platform (`linux/amd64`, `linux/arm64` etc.).
@@ -75,7 +75,7 @@ You can use the following command to verify the latest image using its
 sigstore signature attestation:
 
 ```bash
-cosign verify leplusorg/mbox --certificate-identity-regexp 'https://github\.com/leplusorg/docker-mbox/\.github/workflows/.+' --certificate-oidc-issuer 'https://token.actions.githubusercontent.com'
+cosign verify leplusorg/mail --certificate-identity-regexp 'https://github\.com/leplusorg/docker-mail/\.github/workflows/.+' --certificate-oidc-issuer 'https://token.actions.githubusercontent.com'
 ```
 
 The output should look something like this:
@@ -94,4 +94,4 @@ For instructions on how to install `cosign`, please read this [documentation](ht
 
 ## Request new tool
 
-Please use [this link](https://github.com/leplusorg/docker-mbox/issues/new?assignees=thomasleplus&labels=enhancement&template=feature_request.md&title=%5BFEAT%5D) (GitHub account required) to request that a new tool be added to the image. I am always interested in adding new capabilities to these images.
+Please use [this link](https://github.com/leplusorg/docker-mail/issues/new?assignees=thomasleplus&labels=enhancement&template=feature_request.md&title=%5BFEAT%5D) (GitHub account required) to request that a new tool be added to the image. I am always interested in adding new capabilities to these images.
