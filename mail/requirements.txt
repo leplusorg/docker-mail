@@ -1,1 +1,1 @@
-mail-parser==4.2.1
+mail-parser==4.3.0
