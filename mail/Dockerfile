@@ -23,7 +23,7 @@ RUN apk upgrade --no-cache \
     curl=8.22.0-r0 \
     git=2.54.0-r0 \
     mailutils=3.21-r1 \
-    mutt=2.3.2-r0 \
+    mutt=2.3.2-r1 \
     neomutt=20260504-r0 \
     notmuch=0.40-r2 \
     pipx=1.14.0-r0 \
