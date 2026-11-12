@@ -21,7 +21,7 @@ RUN apk upgrade --no-cache \
     aspell-uk=1.4.0-r3 \
     coreutils=9.11-r0 \
     curl=8.23.0-r0 \
-    git=2.54.0-r0 \
+    git=2.54.1-r0 \
     mailutils=3.21-r1 \
     mutt=2.3.2-r1 \
     neomutt=20260504-r0 \
